@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Positioning</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            .box {
+                height: 10%;
+                width: 10%;
+                position: absolute;
+                opacity: 0.66;
+            }
+            #d1 {           
+                 top: 45%;
+                 left: 45%;
+                 background-color: lightblue;
+                 text-align: center;
+            }
+            #d2 {top: 50%;
+                 left: 50%;
+                 background-color: red;
+                 z-index: 10;
+            }
+            #d3 {top: 50%;
+                 left: 45%;
+                 width: 15%;
+                 background-color: yellow;
+                 opacity: 0.33;}
+        </style>
+    </head>
+    <body>
+        <div id="d1" class="box"></div>
+        <div id="d2" class="box"></div>
+        <div id="d3" class="box"></div>
+    </body>
+</html>

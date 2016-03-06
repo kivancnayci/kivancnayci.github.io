@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Extreme Boldness</title>
-        <style type="text/css">
-            html, body {height: 100%; width: 100%; margin: 0;}
-            table.h1z1 {height:100%; width:100%; border: 5px solid black; border-collapse: collapse;}
-            tr {width: 100%; min-height: 30%;}
-            td {text-align: center; font-size: 50px; border: 5px solid black; border-collapse: collapse;}
-        </style> 
-       <meta charset="UTF-8"/>
-       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Forms of DESTINY</title>
+        <link rel="icon" href="favicon.ico" type="text/x-icon">
+        <meta charset="UTF-8">
+        <style>
+            div {height: 50%;
+                 width: 100%;
+           }
+           #f1  {position: absolute;
+           }
+            #f2 {position: absolute;
+                 left: 12.5%;
+            }
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <table class="h1z1">
-            <tbody>
-                <tr>
-                <td>6</td>
-                <td>6</td>
-                <td>6</td></tr>
-            <tr><td>g</td>
-                <td>r</td>
-                <td>e</td></tr>
-            <tr><td>n</td>
-                <td>t</td>
-                <td>h</td></tr>
-            </tbody>
-          </table>
+        <div>
+            <form id="f1" action="">
+                <p>First Name</p>
+                <p><input type="text" name="Name:" placeholder="Your name here."/></p>
+                <p>Surname</p>
+                <p><input type="text" name="Surname:" placeholder="Your surname here."/></p>
+                <p>E-mail</p>
+                <p><input type="text" name="Mail address:" placeholder="Mail address here."/></p>
+                <p>Password</p>
+                <p><input type="text" name="Password:" placeholder="Password here."/></p>
+                <p><input type="submit" name="Submit"/></p>
+            </form>
+        </div>
+        <div>
+            <form id="f2" action="">
+                <p>What is your hobby?</p>
+                <p><input type="radio" name="kappa" value="Reading"/> Reading</p>
+                <p><input type="radio" name="kappa" value="Hiking"/> Hiking</p>
+                <p><input type="radio" name="kappa" value="Blasting Music"/> Blasting Music</p>
+                <p><input type="radio" name="kappa" value="Traveling"/> Traveling</p>
+            </form> 
+        </div>
     </body>
 </html>

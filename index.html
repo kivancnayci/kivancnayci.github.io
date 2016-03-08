@@ -26,19 +26,12 @@ and open the template in the editor.
                 left: 40%;
                 text-align: center;
             }
-            .notsnape {
+            .choice {
                 position: absolute;
                 top: 35%;
                 cursor: pointer;
-                margin-right: 3em;
-                margin-left: 3em;
-            }
-            .snape {
-                position: absolute;
-                top: 35%;
-                cursor: pointer;
-                margin-right: 3em;
-                margin-left: 3em;
+                display: flex;
+                justify-content: space-between;
             }
             #l1 {
                 left: 35%;
@@ -62,11 +55,11 @@ and open the template in the editor.
             <span id="spquestion">
                 Who is your favorite Harry Potter character?
             </span>
-            <p id="l1" class="notsnape">Harry Potter</p>
-            <p id="l2" class="notsnape">Ron Weasley</p>
-            <p id="l3" class="notsnape">Hermonie Granger</p>
-            <p id="l4" class="snape">Severus Snape</p>
-            <p id="l5" class="notsnape">Sirius Black</p>            
+            <p id="l1" class="choice">Harry Potter</p>
+            <p id="l2" class="choice">Ron Weasley</p>
+            <p id="l3" class="choice">Hermione Granger</p>
+            <p id="l4" class="choice">Severus Snape</p>
+            <p id="l5" class="choice">Sirius Black</p>            
         </div>
         <script>
             $(".notsnape").hover(
@@ -86,3 +79,4 @@ and open the template in the editor.
         </script>
     </body>
 </html>
+

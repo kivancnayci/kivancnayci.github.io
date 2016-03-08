@@ -1,43 +1,84 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
-        <title>Forms of DESTINY</title>
-        <link rel="icon" href="favicon.ico" type="text/x-icon">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <title>Snape is love, Snape is life</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <style>
-            div {height: 50%;
-                 width: 100%;
-           }
-           #f1  {position: absolute;
-           }
-            #f2 {position: absolute;
-                 left: 12.5%;
+            body {
+                background-image: url("http://rack.2.mshcdn.com/media/ZgkyMDEzLzExLzAyLzFmL2hhcnJ5cG90dGVyLjM5NjNlLmpwZw/3e7339ed/da4/harrypotterminimalistposter.jpg");
+                background-size: cover
+            }
+            #divmain {
+                color: darkcyan;
+            }
+            #spquestion {
+                position: absolute;
+                top: 30%;
+                left: 40%;
+                text-align: center;
+            }
+            p.notsnape {
+                position: absolute;
+                top: 35%;
+                cursor: pointer;
+            }
+            p.snape {
+                position: absolute;
+                top: 35%;
+                cursor: pointer;
+            }
+            #l1 {
+                left: 35%;
+            }
+            #l2 {
+                left: 40%;
+            }
+            #l3 {
+                left: 45%;
+            }
+            #l4 {
+                left: 52%;
+            }
+            #l5 {
+                left: 57.55%;
             }
         </style>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>
-            <form id="f1" action="">
-                <p>First Name</p>
-                <p><input type="text" name="Name:" placeholder="Your name here."/></p>
-                <p>Surname</p>
-                <p><input type="text" name="Surname:" placeholder="Your surname here."/></p>
-                <p>E-mail</p>
-                <p><input type="text" name="Mail address:" placeholder="Mail address here."/></p>
-                <p>Password</p>
-                <p><input type="password" name="Password:" placeholder="Password here."/></p>
-                <p><input type="submit" name="Submit"/></p>
-            </form>
+        <div id="divmain">
+            <span id="spquestion">
+                Who is your favorite Harry Potter character?
+            </span>
+            <p id="l1" class="notsnape">Harry Potter</p>
+            <p id="l2" class="notsnape">Ron Weasley</p>
+            <p id="l3" class="notsnape">Hermonie Granger</p>
+            <p id="l4" class="snape">Severus Snape</p>
+            <p id="l5" class="notsnape">Sirius Black</p>            
         </div>
-        <div>
-            <form id="f2" action="">
-                <p>What is your hobby?</p>
-                <p><input type="radio" name="kappa" value="Reading"/> Reading</p>
-                <p><input type="radio" name="kappa" value="Hiking"/> Hiking</p>
-                <p><input type="radio" name="kappa" value="Blasting Music"/> Blasting Music</p>
-                <p><input type="radio" name="kappa" value="Traveling"/> Traveling</p>
-            </form> 
-        </div>
+        <script>
+            $(".notsnape").hover(
+                    function()  {
+                        $(this).css("color","darkblue");
+                    },
+                    function()  {
+                        $(this).css("color","darkcyan");
+                    });
+            $(".snape").hover(
+                    function()  {
+                        $(this).css("color", "blue");
+                    },
+                    function()  {
+                        $(this).css("color", "darkcyan");
+                    });
+        </script>
     </body>
 </html>

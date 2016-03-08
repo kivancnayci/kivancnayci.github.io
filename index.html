@@ -26,12 +26,14 @@ and open the template in the editor.
                 left: 40%;
                 text-align: center;
             }
+            p {
+                display: inline-block;
+                width: 10em;
+            }
             .choice {
-                position: absolute;
+                position: absolute; 
                 top: 35%;
                 cursor: pointer;
-                display: flex;
-                justify-content: space-between;
             }
             #l1 {
                 left: 35%;
@@ -62,14 +64,14 @@ and open the template in the editor.
             <p id="l5" class="choice">Sirius Black</p>            
         </div>
         <script>
-            $(".notsnape").hover(
+            $(".choice").hover(
                     function()  {
                         $(this).css("color","darkblue");
                     },
                     function()  {
                         $(this).css("color","darkcyan");
                     });
-            $(".snape").hover(
+            $("#l4").hover(
                     function()  {
                         $(this).css("color", "blue");
                     },
@@ -79,4 +81,3 @@ and open the template in the editor.
         </script>
     </body>
 </html>
-

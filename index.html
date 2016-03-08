@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <link rel="stylesheet" href="style.css" type="text/css"/>
@@ -24,14 +19,19 @@ and open the template in the editor.
                 position: absolute;
                 top: 30%;
                 left: 40%;
-                text-align: center;
+                text-align: justify;
             }
             p {
                 display: inline-block;
                 width: 3em;
             }
-            .choice {
+            .notsnape {
                 position: absolute; 
+                top: 35%;
+                cursor: pointer;
+            }
+            .snape {
+                position: absolute;
                 top: 35%;
                 cursor: pointer;
             }
@@ -57,14 +57,14 @@ and open the template in the editor.
             <span id="spquestion">
                 Who is your favorite Harry Potter character?
             </span>
-            <p id="l1" class="choice">Harry Potter</p>
-            <p id="l2" class="choice">Ron Weasley</p>
-            <p id="l3" class="choice">Hermione Granger</p>
-            <p id="l4" class="choice">Severus Snape</p>
-            <p id="l5" class="choice">Sirius Black</p>            
+            <p id="l1" class="notsnape">Harry Potter</p>
+            <p id="l2" class="notsnape">Ron Weasley</p>
+            <p id="l3" class="notsnape">Hermione Granger</p>
+            <p id="l4" class="snape">Severus Snape</p>
+            <p id="l5" class="notsnape">Sirius Black</p>            
         </div>
         <script>
-            $(".choice").hover(
+            $(".notsnape").hover(
                     function()  {
                         $(this).css("color","darkblue");
                     },
@@ -78,6 +78,14 @@ and open the template in the editor.
                     function()  {
                         $(this).css("color", "darkcyan");
                     });
+            $(".notsnape").click(
+                    function()   {
+                        window.open("https://www.youtube.com/watch?v=gvdf5n-zI14", "_blank");
+                    });
+            $("#l4").click(
+                    function()  {
+                        window.open("http://potterpuppetpals.com/sexy.swf", "_blank");
+                    }); 
         </script>
     </body>
 </html>

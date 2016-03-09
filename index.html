@@ -21,11 +21,10 @@
                 position: absolute;
                 top: 30%;
                 left: 37.5%;
+                text-align: justify;
             }
             p {
-                display: inline-block;
-                width: 3em;
-                text-align: center;
+                line-height: 25%;
             }
             .notsnape {
                 position: absolute; 
@@ -37,20 +36,20 @@
                 top: 35%;
                 cursor: pointer;
             }
-            #l1 {
-                padding-left: 20em;
+            #d1 {
+                left: 35%;
             }
-            #l2 {
-                padding-left: 25em;
+            #d2 {
+                left: 42%;
             }
-            #l3 {
-                padding-left: 30em;
+            #d3 {
+                left: 49%;
             }
-            #l4 {
-                padding-left: 35em;
+            #d4 {
+                left: 57.5%;
             }
-            #l5 {
-                padding-left: 40em;
+            #d5 {
+                left: 64.5%;
             }
         </style>
     </head>
@@ -59,11 +58,26 @@
             <span id="spquestion">
                 Who is your favorite Harry Potter character?
             </span>
-            <p id="l1" class="notsnape">Harry Potter</p>
-            <p id="l2" class="notsnape">Ron Weasley</p>
-            <p id="l3" class="notsnape">Hermione Granger</p>
-            <p id="l4" class="snape">Severus Snape</p>
-            <p id="l5" class="notsnape">Sirius Black</p>            
+            <div id="d1" class="notsnape">
+                <p>Harry</p>
+                <p>Potter</p>
+            </div>
+            <div id="d2" class="notsnape">
+                <p>Ron</p>
+                <p>Weasley</p>
+            </div>
+            <div id="d3" class="notsnape">
+                <p>Hermione</p>
+                <p>Granger</p>
+            </div>
+            <div id="d4" class="snape">
+                <p>Severus</p>
+                <p>Snape</p>
+            </div>
+            <div id="d5" class="notsnape">
+                <p>Sirius</p>
+                <p>Black</p>
+            </div>         
         </div>
         <script>
             $(".notsnape").hover(
@@ -73,7 +87,7 @@
                     function()  {
                         $(this).css("color","darkcyan");
                     });
-            $("#l4").hover(
+            $(".snape").hover(
                     function()  {
                         $(this).css("color", "blue");
                     },
@@ -84,7 +98,7 @@
                     function()   {
                         window.open("https://www.youtube.com/watch?v=gvdf5n-zI14", "_blank");
                     });
-            $("#l4").click(
+            $(".snape").click(
                     function()  {
                         window.open("http://potterpuppetpals.com/sexy.swf", "_blank");
                     }); 

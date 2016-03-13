@@ -2,106 +2,49 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css" type="text/css"/>
-        <link rel="stylesheet" href="style.css" type="text/css"/>
-        <link rel="icon" type="image/x-icon" href="http://i46.photobucket.com/albums/f120/nicole9514/harry%20potter%20stuff/ss9.png"/>
-        <title>Snape is love, Snape is life</title>
+        <title>Functions</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <style type="text/css">
-            body {
-                background-image: url("http://rack.2.mshcdn.com/media/ZgkyMDEzLzExLzAyLzFmL2hhcnJ5cG90dGVyLjM5NjNlLmpwZw/3e7339ed/da4/harrypotterminimalistposter.jpg");
-                background-size: cover;
+        <script>
+            function fifth_power(base) { 
+                var pwr_res = Math.pow(base, 5);
+                return pwr_res;
             }
-            #divmain {
-                color: darkcyan;
-                font-size: 2em;
+            function calculate_pwr() {
+                var pwr_input = $('#base').val();
+                var power_res = fifth_power(pwr_input);
+                $('#pwr_res').val(power_res);
+            }       
+            function average(num1, num2) {
+                var num1 = Number(num1);
+                var num2 = Number(num2);                
+                var avg_res = (num1 + num2) / 2;
+                return avg_res;                
             }
-            #spquestion {
-                position: absolute;
-                top: 30%;
-                left: 37.5%;
-                text-align: justify;
+            function calculate_avg() {
+                var avg_input1 = $('#num1').val();
+                var avg_input2 = $('#num2').val();
+                var average_res = average(avg_input1, avg_input2);
+                $('#avg_res').val(average_res);
             }
-            p {
-                line-height: 25%;
-            }
-            .notsnape {
-                position: absolute; 
-                top: 35%;
-                cursor: pointer;
-            }
-            .snape {
-                position: absolute;
-                top: 35%;
-                cursor: pointer;
-            }
-            #d1 {
-                left: 35%;
-            }
-            #d2 {
-                left: 42%;
-            }
-            #d3 {
-                left: 49%;
-            }
-            #d4 {
-                left: 57.5%;
-            }
-            #d5 {
-                left: 64.5%;
-            }
-        </style>
+        </script>
     </head>
     <body>
-        <div id="divmain">
-            <span id="spquestion">
-                Who is your favorite Harry Potter character?
-            </span>
-            <div id="d1" class="notsnape">
-                <p>Harry</p>
-                <p>Potter</p>
-            </div>
-            <div id="d2" class="notsnape">
-                <p>Ron</p>
-                <p>Weasley</p>
-            </div>
-            <div id="d3" class="notsnape">
-                <p>Hermione</p>
-                <p>Granger</p>
-            </div>
-            <div id="d4" class="snape">
-                <p>Severus</p>
-                <p>Snape</p>
-            </div>
-            <div id="d5" class="notsnape">
-                <p>Sirius</p>
-                <p>Black</p>
-            </div>         
+        <div id="pwr_div">
+            <form id="f1">
+                <input type="text" id="base" value="" placeholder="Enter the number here!"/>
+                <input type="text" id="pwr_res" value="" placeholder="The result will appear here!"/>
+                <input type="button" onclick="calculate_pwr();" value="Calculate 5th pwr!">
+            </form>
         </div>
-        <script>
-            $(".notsnape").hover(
-                    function()  {
-                        $(this).css("color","darkblue");
-                    },
-                    function()  {
-                        $(this).css("color","darkcyan");
-                    });
-            $(".snape").hover(
-                    function()  {
-                        $(this).css("color", "blue");
-                    },
-                    function()  {
-                        $(this).css("color", "darkcyan");
-                    });
-            $(".notsnape").click(
-                    function()   {
-                        window.open("https://www.youtube.com/watch?v=gvdf5n-zI14", "_blank");
-                    });
-            $(".snape").click(
-                    function()  {
-                        window.open("http://potterpuppetpals.com/sexy.swf", "_blank");
-                    }); 
-        </script>
+        <div id="avg_div">
+            <form id="f2">
+                <input type="text" id="num1" value="" placeholder="First number here."/>
+                <input type="text" id="num2" value="" placeholder="Second number here."/>
+                <input type="text" id="avg_res" value="" placeholder="Result will be here."/>
+                <input type="button" onclick="calculate_avg();" value="Calculate avg!"/>
+            </form>
+        </div>
     </body>
 </html>

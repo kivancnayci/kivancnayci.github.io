@@ -1,50 +1,73 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="style.css" type="text/css"/>
-        <title>Functions</title>
+        <title>Comparators</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script>
-            function fifth_power(base) { 
-                var pwr_res = Math.pow(base, 5);
-                return pwr_res;
+        <style>
+            body {
+                background: url("https://wallpaperscraft.com/image/highlights_circles_light_background_15994_2560x1440.jpg");
+                background-size: cover;
             }
-            function calculate_pwr() {
-                var pwr_input = $('#base').val();
-                var power_res = fifth_power(pwr_input);
-                $('#pwr_res').val(power_res);
-            }       
-            function average(num1, num2) {
-                var num1 = Number(num1);
-                var num2 = Number(num2);                
-                var avg_res = (num1 + num2) / 2;
-                return avg_res;                
+            h3 {
+                position: absolute;
+                left: 43%;
+                top: 20%;
+                text-align: center;
             }
-            function calculate_avg() {
-                var avg_input1 = $('#num1').val();
-                var avg_input2 = $('#num2').val();
-                var average_res = average(avg_input1, avg_input2);
-                $('#avg_res').val(average_res);
+            #fields {
+                position: absolute;
+                margin-top: 15%;
+                margin-left: 30%;
             }
-        </script>
+            #error {
+                text-align: center;
+                background-color: black;
+                color: white;
+                position: absolute;
+                top: 35%;
+                left: 42%;
+            }
+        </style>
     </head>
     <body>
-        <div id="pwr_div">
+        <h3>Simple Calculator</h3>
+        <div id="fields">
             <form id="f1">
-                <input type="text" id="base" value="" placeholder="Enter the number here!"/>
-                <input type="text" id="pwr_res" value="" placeholder="The result will appear here!"/>
-                <input type="button" onclick="calculate_pwr();" value="Calculate 5th pwr!">
+                <input type="text" id="in1" placeholder="Number here!"/>
+                <select id="symbols">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+                <input type="text" id="in2" placeholder="Number here!"/>
+                <input type="button" id="calc" value="Calculate!" onclick="calculation();"/>
+                <input type="text" id="res" placeholder="Result." disabled/>
             </form>
         </div>
-        <div id="avg_div">
-            <form id="f2">
-                <input type="text" id="num1" value="" placeholder="First number here."/>
-                <input type="text" id="num2" value="" placeholder="Second number here."/>
-                <input type="text" id="avg_res" value="" placeholder="Result will be here."/>
-                <input type="button" onclick="calculate_avg();" value="Calculate avg!"/>
-            </form>
-        </div>
+        <div id="error"></div>
+        <script>
+            var errNum = 1;
+            function calculation() {
+                var input1 = parseInt($('#in1').val());
+                var input2 = parseInt($('#in2').val());
+                if (inputCheck(input1, input2)) {
+                    var result = eval(input1 + $("#symbols").val() + input2);
+                    $('#res').val(result);
+                } else {
+                    $('#error').html("You have made "+ errNum +" mistake(s).");
+                    errNum++;
+                    }
+            }
+            function inputCheck(input1, input2) {
+                if(!isNaN(input1) && !isNaN(input2)){
+                    return true;
+                } else{
+                    return false;
+                }
+            }
+        </script>
     </body>
 </html>

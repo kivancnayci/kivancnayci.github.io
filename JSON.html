@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JSON the Killer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Employee Information</h1>
+        <p id="empl"></p>
+        <script>
+            var kat = '{"name":"Katherine","street":"Oslo West 16", "phone":"555 6663458","DNA":"superior",\n\
+                        "proteinSeq":"AATTATAT","bp":25000,"height":178,"weight":60}';            
+            var obj = JSON.parse(kat);
+            var rat = calculate(obj.height, obj.weight);
+            $('#empl').append("height to weight ratio:" + rat + "<br>");
+            function calculate(h,w) {
+                return h / w;
+            }
+            $("#empl").append(
+                    obj.name + "<br>"+
+                    "<br>" + obj.street +
+                    "<br>" + obj.phone +
+                    "<br>" + obj.DNA +
+                    "<br>" + obj.proteinSeq +
+                    "<br>" + obj.bp);
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>        
+        <title>Average Height JSON</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #avg {
+                position: absolute;
+                margin: 10px;
+                top: 40%;
+                left: 30%;
+                border: 5px black;
+                border-collapse: collapse;
+                border-style: groove;
+                padding: 5px;
+                font-size: 20px;
+                
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "avg">
+        </div>
+        <script>
+            var students = {students: [
+                    {"name": "Katherine", "age": 25, "height": 170},
+                    {"name": "Guillaume", "age": 27, "height": 175},
+                    {"name": "Ovin", "age": 40, "height": 170}]};
+            var avgAge = calcAvgAge(students);
+            $('#avg').append("Average age of students: " + avgAge + "<br>");
+            var avgHeight = calcAvgHeight(students);
+            $('#avg').append("Average height of students: " + avgHeight + "<br>");
+
+            function calcAvgAge(obj) {
+                var totalAge = 0;
+                for (var i = 0; i < obj.students.length; i++) {
+                    totalAge += obj.students[i].age;
+                }
+                return totalAge / obj.students.length;
+            }
+            
+            function calcAvgHeight(obj) {
+                var totalHeight = 0;
+                for (var h = 0; h < obj.students.length; h++) {
+                    totalHeight += obj.students[h].height;
+                }
+                return totalHeight / obj.students.length;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+
+
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <style>
+            #obj {
+                position: absolute;
+                top: 30%;
+                border: black 5px solid;
+                border-collapse: collapse;
+                background-color: red;
+                height: 150px;
+                width: 150px;
+                z-index: 1;
+            }
+            #target {
+                position: absolute;
+                top: 60%;
+                left: 20%;
+                border: black 5px solid;
+                border-collapse: collapse;
+                background-color: blue;
+                height: 300px;
+                width: 300px;
+                z-index: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="obj">
+        </div>
+        <div id="target">
+        </div>
+        <ul>
+            <li id="n1" class="texts">Uno</li>
+            <li id="n2" class="texts">Dos</li>
+            <li id="n3" class="texts">Tres</li>
+            <li id="n4" class="texts">Cuatro</li>
+            <li id="n5" class="texts">Cinco</li>
+            <li id="n6" class="texts">Seis</li>
+            <li id="n7" class="texts">Siete</li>
+            <li id="n8" class="texts">Ocho</li>
+            <li id="n9" class="texts">Nueve</li>
+            <li id="n10" class="texts">Diez</li>
+        </ul>
+        <ul id="list2">
+            <li class="integer">1</li>
+            <li class="integer">2</li>
+            <li class="integer">3</li>
+            <li class="integer">4</li>
+            <li class="integer">5</li>
+            <li class="integer">6</li>
+            <li class="integer">7</li>
+            <li class="integer">8</li>
+            <li class="integer">9</li>
+        </ul>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("li.integer").draggable();
+                $("#list2").css("width", "2em");
+                
+            });
+            $(document).ready(function() {
+                $("#obj").draggable();
+                $("#target").draggable();
+                $("#target").droppable(
+                {
+                    drop: function() {
+                        $("#target").css("background-color", "red");
+                        $("#obj").css("background-color", "blue");
+                            }
+                });
+            });
+        </script>
+    </body>
+</html>

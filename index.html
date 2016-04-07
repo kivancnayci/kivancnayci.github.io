@@ -1,74 +1,115 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Comparators</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <head>  
+        <title>Drag n Drop</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
         <style>
-            body {
-                background: url("https://wallpaperscraft.com/image/highlights_circles_light_background_15994_2560x1440.jpg");
-                background-size: cover;
-            }
-            h3 {
+            #target{
                 position: absolute;
-                left: 43%;
-                top: 20%;
-                text-align: center;
+                top: 10px;
+                left:10px;
+                width: 300px;
+                height: 300px;
+                background-color: blue;
             }
-            #fields {
+            #arrow{
                 position: absolute;
-                margin-top: 15%;
-                margin-left: 30%;
+                top: 200px;
+                left: 500px;
+                width: 100px;
+                width: 100px;
+                background-color: red;
             }
-            #error {
-                text-align: center;
-                background-color: black;
-                color: white;
-                position: absolute;
-                top: 35%;
-                left: 42%;
-                opacity: 0.4
+            ul
+            {
+                list-style-type: none;
             }
         </style>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+
+
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#arrow").draggable();
+                $("#target").droppable(
+                        {
+                            drop: function () {
+                                $("#arrow").draggable("disable");
+                                $("#target").draggable("disable");
+                                $("#target").css("background-color", "red").html("");
+                                $("#arrow").css("background-color", "red").html("");
+                            }
+                        }
+                );
+            });
+        </script>
+
     </head>
     <body>
-        <h3>Simple Calculator</h3>
-        <div id="fields">
-            <form id="f1">
-                <input type="text" id="in1" placeholder="Number here!"/>
-                <select id="symbols">
-                    <option value="+">+</option>
-                    <option value="-">-</option>
-                    <option value="*">*</option>
-                    <option value="/">/</option>
-                </select>
-                <input type="text" id="in2" placeholder="Number here!"/>
-                <input type="button" id="calc" value="Calculate!" onclick="calculation();"/>
-                <input type="text" id="res" placeholder="Result." disabled/>
-            </form>
+        <div>
+            <ul id="texts">
+            </ul> 
+            <ul id="numbers">
+            </ul>
         </div>
-        <div id="error"></div>
-        <script>
-            var errNum = 1;
-            function calculation() {
-                var input1 = parseInt($('#in1').val());
-                var input2 = parseInt($('#in2').val());
-                if (inputCheck(input1, input2)) {
-                    var result = eval(input1 + $("#symbols").val() + input2);
-                    $('#res').val(result);
-                } else {
-                    $('#error').html("You have made "+ errNum +" mistake(s).");
-                    errNum++;
-                    }
-            }
-            function inputCheck(input1, input2) {
-                if(!isNaN(input1) && !isNaN(input2)){
-                    return true;
-                } else{
-                    return false;
+        <script type="text/javascript">
+            var elemID_1 = '#numbers';
+            var elemID_2 = '#texts';
+            var id = 0;
+            $().ready(function () {
+                for (var i = 1; i < 11; i++) {
+                    $(elemID_1).append(
+                            "<li id='" + i + "' class='integer'>" +
+                            i + "</li>");
+                    $('#' + i).draggable();
                 }
+            });
+
+            var numbers = [
+                set0 = ["Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho", "Nueve", "Diez"]
+            ];
+            function listNums(array) {
+                var list = document.createElement('ul');
+                for (var i = 0; i < array.length; i++) {
+                    var item = document.createElement('li');
+                    var lol = item.id = "n" + (i + 1);
+                    item.appendChild(document.createTextNode(array[i]));
+                    list.appendChild(item);
+
+                }
+                return list;
             }
-        </script>
+            document.getElementById('texts').appendChild(listNums(numbers[0]));
+
+            for (var i = 1; i < 11; i++) {
+                $('#' + 'n' + i).droppable({drop: function (event, ui) {
+                        var di = ui.draggable.attr("id");
+                        var numId = this.id.replace('n', '');
+                        console.log(di + "\t" + numId);
+                        if (di === numId) {
+                            console.log("buraya geldi");
+                            $('#' + di).draggable("disable");
+                            $('#' + numId).html("&nbsp;").css("background-color", "green");
+                        }
+                    }});
+            }
+
+            $.fn.randomize = function (selector) {
+                var $elems = selector ? $(this).find(selector) : $(this).children(),
+                        $parents = $elems.parent();
+                $parents.each(function () {
+                    $(this).children(selector).sort(function () {
+                        return Math.round(Math.random()) - 0.5;
+                        // }). remove().appendTo(this); // 2014-05-24: Removed `random` but leaving for reference. See notes under 'ANOTHER EDIT'
+                    }).detach().appendTo(this);
+                });
+                return this;
+            };
+
+            $('ul').randomize();
+        </script>        
     </body>
 </html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <title>Cancer Stuff</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+        <style>
+            #texts{
+                position: absolute;
+                top: 10px;
+                left:10px;
+                width: 100px;
+                height: 200px;
+            }
+            #numbers{
+                position: absolute;
+                top: 200px;
+                left: 200px;
+                width: 100px;
+                width: 100px;
+                background-color: red;
+            }
+            ul
+            {
+                list-style-type: none;
+            }
+        </style>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+
+        </script>
+    </head>
+    <body>
+        <ul id="texts">
+        </ul> 
+        <ul id="numbers">
+        </ul>
+        <script type="text/javascript">
+            var elemID_1 = '#numbers';
+            var elemID_2 = '#texts';
+            var id = 0;
+            $(document).ready(function () {
+                for (var i = 1; i < 11; i++) {
+                    $(elemID_1).append(
+                            "<li id='" + i + "' class='integer'>" +
+                            i + "</li>");
+                    $('#' + i).draggable();
+                }
+            });
+            var spanishNums = [
+                set0 = ["Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho", "Nueve", "Diez"]
+            ];
+            function listNums(array) {
+                var list = document.createElement('ul');
+                for (var i = 0; i < array.length; i++) {
+                    var item = document.createElement('li');
+                    item.appendChild(document.createTextNode(array[i]));
+                    item.id = "n" + (i + 1);
+                    list.appendChild(item);
+                }
+                return list;
+            }
+            document.getElementById('texts').appendChild(listNums(spanishNums[0]));
+            for (var i = 0; i < 11; i++) {
+                $('#' + 'n' + i).droppable({drop: function (event, ui) {
+                        var di = ui.draggable.attr("id");
+                        var numId = this.id.replace('n', '');
+                        if (di === numId) {
+                            $('#' + di).draggable("disable");
+                            $('#' + numId).css("display", "none");
+                            ;
+                            var hidden = 0;
+                            for (var j = 0; j < spanishNums.length; j++) {
+                                if ($('#' + di).css('display') === 'none')
+                                    hidden++;
+                            }
+                            if (hidden === spanishNums.length) {
+                                alert("You're done.");
+                            }
+                            console.log("asdas");
+                        } else {
+                            var left = Math.floor((Math.random() * 1000));
+                            var top = Math.floor((Math.random() * 800));
+                            $('#' + di).css("left", left + "px");
+                            $('#' + di).css("top", top + "px");
+                        }
+                    }});
+            }
+            $.fn.randomize = function (selector) {
+                var $elems = selector ? $(this).find(selector) : $(this).children(),
+                        $parents = $elems.parent();
+                $parents.each(function () {
+                    $(this).children(selector).sort(function () {
+                        return Math.round(Math.random()) - 0.5;
+                        // }). remove().appendTo(this); // 2014-05-24: Removed `random` but leaving for reference. See notes under 'ANOTHER EDIT'
+                    }).detach().appendTo(this);
+                });
+                return this;
+            };
+            $('ul').randomize();
+        </script>        
+    </body>
+</html>

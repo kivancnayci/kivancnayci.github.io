@@ -1,4 +1,5 @@
 var numText = ['Null', 'Eins', 'Zwei', 'Drei', 'Vier', 'Fünf', 'Sechs', 'Sieben', 'Acht', 'Neun', 'Zehn'];
+//var numText = ['Null', 'Eins', 'Zwei', 'Drei'];
 var numbers = [];
 var numCorrect = 0;
 var secLeft = 45;
@@ -87,13 +88,8 @@ function checkPlacement(event, ui, ti) {
         niElem.css("display", "none");
         numbers[niElem.data("index").index].placed = true;
         numCorrect++;
-        if(numCorrect === 11){
-            stopInterval();
-            final = (parseInt(correct+1)*5)+(parseInt(wrong)*1)+parseInt(secLeft);
-            $("#score").html("Your final score is "+parseInt(final));
-        }
         checkPlacementStatus();
-        correct++;
+
     } else {
         var dimx = $('body').width();
         var dimy = $('body').height();
@@ -114,6 +110,7 @@ function setCookies() {
 
 function checkPlacementStatus() {
     if (numCorrect === numbers.length) {
+        console.log("initializing sorting");
         initSorting();
     }
 }
@@ -129,8 +126,17 @@ function initSorting() {
                 if ($('#t' + j).index() == j)
                     ordered++;
             }
-            if (ordered == numText.length)
-                alert("done");
+            if (ordered == numText.length){
+//                alert("done");
+                            stopInterval();
+            final = (parseInt(correct+1)*5)+(parseInt(wrong)*1)+parseInt(secLeft);
+            $("#score").html("Your final score is "+parseInt(final));
+            }
+//        if(numCorrect === 11){
+//
+//        }
+        checkPlacementStatus();
+        correct++;
         }
     });
 }
